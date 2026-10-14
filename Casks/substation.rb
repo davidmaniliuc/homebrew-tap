@@ -2,7 +2,7 @@
 # sha256 lines (the release workflow in davidmaniliuc/substation).
 cask "substation" do
   version "0.9.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "23f247b55c6b8a63f8ad086da38516d8ff4103f1c9b3decd72870cba41c37bbd"
 
   url "https://github.com/davidmaniliuc/substation/releases/download/v#{version}/Substation-#{version}.dmg"
   name "Substation"
