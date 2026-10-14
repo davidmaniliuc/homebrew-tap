@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Edited here by hand. Each Substation release rewrites only the version and
 # sha256 lines (the release workflow in davidmaniliuc/substation).
 cask "substation" do
@@ -14,13 +16,12 @@ cask "substation" do
     strategy :github_releases
   end
 
+  # The app updates itself through Sparkle, so brew upgrade leaves it alone.
+  auto_updates true
   # The Zig core is built for the host architecture only and the recompiler
   # emits arm64; the app's deployment target is macOS 26.
   depends_on arch: :arm64
-  depends_on macos: ">= :tahoe"
-
-  # The app updates itself through Sparkle, so brew upgrade leaves it alone.
-  auto_updates true
+  depends_on macos: :tahoe
 
   app "Substation.app"
 
@@ -31,11 +32,13 @@ cask "substation" do
   # `--no-quarantine` or a reinstall, and xattr then exits non-zero, which
   # would fail the whole install. Drop this block once releases are signed
   # with a Developer ID and notarized (docs/RELEASING.md).
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args:         ["-dr", "com.apple.quarantine", "#{appdir}/Substation.app"],
-                   must_succeed: false,
-                   print_stderr: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Substation.app"],
+        must_succeed:   false,
+        print_stderr:   false,
+        writable_paths: ["Substation.app"],
+        writable_base:  :appdir
   end
 
   zap trash: [
