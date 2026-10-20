@@ -3,8 +3,8 @@
 # Edited here by hand. Each Substation release rewrites only the version and
 # sha256 lines (the release workflow in davidmaniliuc/substation).
 cask "substation" do
-  version "0.9.0"
-  sha256 "23f247b55c6b8a63f8ad086da38516d8ff4103f1c9b3decd72870cba41c37bbd"
+  version "0.9.1"
+  sha256 "e7a5020272fdc3e571dcef2ed7e985ba9d4243b9c8be14e204c0c20ecf79f877"
 
   url "https://github.com/davidmaniliuc/substation/releases/download/v#{version}/Substation-#{version}.dmg"
   name "Substation"
