@@ -3,8 +3,8 @@
 # Edited here by hand. Each AnkiMac release rewrites only the version and
 # sha256 lines (the release workflow in davidmaniliuc/anki-mac).
 cask "anki-mac" do
-  version "0.0.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "0.1.0"
+  sha256 "9b7ed6aec5b7a7ef86c15a3c6643d52e9955273b39aca90259ab8466a5a5169b"
 
   url "https://github.com/davidmaniliuc/anki-mac/releases/download/v#{version}/AnkiMac-#{version}.dmg"
   name "AnkiMac"
